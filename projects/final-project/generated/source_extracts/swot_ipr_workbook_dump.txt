@@ -1,0 +1,39 @@
+FILE: Illya_Fefelov_SWOT_IPR_filled.xlsx
+
+=== SHEET: SWOT ===
+Інструкція по проведенню SWOT-аналiзу:
+1. Надайте відповіді на питання в кожному блоці (сірі поля).
+2. Щоб зрозуміти свої сильні сторони, ви можете згадати: показники КРІ/ОКR, за що вас хвалили на роботі.
+Сильні сторони | Сильні сторони | Слабкі сторони | Слабкі сторони
+За які результати, про'єкти, зміни ви були цінні для вашого роботодавця? | Full-Stack розробка (Vue.js, Nuxt); Python/Data Science; Автоматизація (20% економія); Data pipelines для real-time; Revenue 7M UAH від scraper проєкту | Що дається найважче? | Відсутність комерційного MLOps досвіду; Мало досвіду з Cloud (AWS/GCP/Azure) для ML; Немає сертифікацій (CKA, AWS)
+По яким питанням до вас звертаються за порадою/консультацією? | Vue.js/Nuxt, Python скрипти, автоматизація, UI/UX дизайн, Strapi CMS | Які задачі найчастіше саботуєте? | Складні DevOps задачі (Kubernetes в продакшені); ML deployment; CI/CD для ML
+Які задачі вам найлегше виконувати? | Веб-розробка, Python, автоматизація, створення API, дизайн | З чим не подобається працювати? | Робота з Kubeflow; ML monitoring; Advanced Cloud ML services
+Який зворотний зв'язок вам давав керівник? | Хвалили за швидкість виконання, ініціативність, якість коду, вміння вирішувати нестандартні задачі
+Можливості | Можливості | Загрози/ризики | Загрози/ризики
+Які можливості переді мною відкривають мої сильні сторони? | Ріст попиту на MLOps/LLMOps; AI/ML у Defense Tech; Перехід всередині компанії; MSc в Neoversity | Які загрози слабкі сторони несуть з собою? | Висока конкуренція з досвідченими MLOps; Швидкі зміни в AI/ML; Автоматизація може замінити рутинні задачі
+Як я можу використовувати свої сильні сторони для подолання слабкостей? | Python навички + Docker = ML deployment; Vue досвід = ML UI/dashboards; Автоматизація = ML pipelines | Що я можу зробити, щоб мінімізувати вплив загроз? | Постійне навчання (курси, сертифікати); Менторство; Фокус на одному напрямку
+Які нові проекти чи ідеї я можу реалізувати? | Internal ML tools; RAG pipelines; ML infrastructure для Defense Tech; Data aggregation платформи | Які дії я можу вжити для розвитку можливостей, враховуючи 
+мої слабкості та загрози? | Отримати CKA/Kubernetes досвід; Пройти AWS/GCP ML курси; Побудувати ML проєкт з деплоєм
+
+=== SHEET: ІПР ===
+Інструкція по заповненню ІПР: Заповніть блоки А (зараз) та B (через 6-12 місяців) | 
+Точка А (де ви працюєте зараз)
+Назва позиції та рівень | Junior MLOps Engineer / Full-Stack Developer (Full-Iron Design)
+Сильні сторони | Python, Vue.js/Nuxt, Docker, SciKit-Learn, Pandas, автоматизація, data pipelines, 10 років досвіду в IT
+Слабкі сторони | Відсутність комерційного MLOps досвіду; Мало досвіду з Cloud (AWS/GCP/Azure); Немає сертифікацій
+Технічні навички | Python (intermediate), Vue.js, Docker, PostgreSQL, basic Kubernetes, SciKit-Learn, Pandas, Git
+Рівень доходу | $1000-1500 (Junior MLOps) / $1500-2000 (Full-Stack)
+Точка B (де ви хочете працювати через 1 рік)
+Назва позиції та рівень | MLOps Engineer / Junior AI Engineer
+Сильні сторони (що потрібно мати) | Kubernetes (CKA), AWS/GCP/Azure ML, MLflow, Kubeflow, Airflow, Terraform, LangChain, Vector DBs
+Технічні навички | Kubernetes, Cloud ML services, CI/CD for ML, MLflow, Kubeflow, LLMOps, Terraform
+Рівень доходу | $2500-3500
+Посилання на вакансії | https://jobs.dou.ua/companies/profisea/vacancies/281969/ (MLOps Engineer)
+Індивідуальний план розвитку на рік
+Навички (3-5, можуть бути як tech skills так і soft skills) | Курси/ тренінги/ література/ вебінари/ подкасти | Критерії оцінювання засвоєння навички | Дедлайн в межах року | Люди чи ресурси, потрібні для засвоєння навички | Статус | Результат
+Навички | Курси/ навчання | Як практикуватись | Дедлайн | Критерії | To do
+1. Kubernetes (CKA) | Kodekloud, K8s docs | Практика на minikube/kind | Q2 2025 | Отримання CKA | In Progress
+2. AWS/GCP Azure ML | AWS SageMaker course | Деплой моделі в Cloud | Q3 2025 | Працюючий Cloud ML проєкт
+3. CI/CD for ML | MLflow, Airflow docs | Побудова ML CI/CD pipeline | Q4 2025 | Робочий pipeline
+4. LLMOps / LangChain | LangChain docs, DeepLearning.AI | Побудова RAG system | Q4 2025 | Працюючий RAG проєкт
+5. Terraform (IaC) | Terraform tutorials | IaC для ML infrastructure | Q1 2026 | Terraform код для Cloud

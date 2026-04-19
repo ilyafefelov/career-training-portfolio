@@ -1,0 +1,8 @@
+.vscode/
+.obsidian/
+.playwright-mcp/
+.tmp/
+*.pyc
+__pycache__/
+node_modules/
+.DS_Store
