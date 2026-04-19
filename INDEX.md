@@ -18,19 +18,19 @@
 
 - `ukraine-it-trends-review.md` — Review of modern IT trends, myths, and future prospects for Ukraine’s IT sector.
 - `performance-review-personnel-it-projects.md` — Review and analysis of performance review practices for IT project teams.
+- `research/sources/` — Supporting research PDFs and source documents for review content.
 
 ## `workshops/`
 
 - `how-to-get-a-raise.md` — Workshop summary and instructions for career growth and salary negotiation.
 - `how-to-get-a-raise/` — Supporting workshop assets, SWOT worksheets, development plans, and exercise files.
+- `workshops/resources/` — Additional workshop reference PDFs and career planning documents.
 
 ## `projects/final-project/`
 
 - `build_retrospective_artifacts.py` — Script used to generate retrospective artifacts from the final project.
 - `Retrospective Board_Neoversity.jam` — FigJam board source file for the final retrospective.
-- `html_board/` — Local HTML preview of the final retrospective board.
 - `generated/retrospective_board_package_ua.md` — Generated retrospective board package and guidance for submission.
-- `generated/exports/` — Exported board images, render files, and final project report.
 
 ## `archive/`
 

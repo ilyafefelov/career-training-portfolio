@@ -24,11 +24,13 @@ I am interested in teams that want practical systems over hype, with a strong pr
 ## Repo structure
 
 - `career-docs/` — current career positioning, LinkedIn drafts, post outlines, interview script, and planning notes.
-- `resumes/` — resume variants and targeted CV copy.
-- `research/` — published reviews, market study analysis, and reflective writing.
+- `resumes/` — resume variants, targeted CV copy, and supporting achievement assets.
+- `research/` — published reviews, market study analysis, reflective writing, and research sources.
+- `research/sources/` — supporting research PDFs and source documents for review content.
 - `workshops/` — career workshop materials and supporting worksheets.
-- `projects/final-project/` — final project assets, generated retrospective package, HTML board export, and board image/report outputs.
-- `archive/` — legacy documents, older resume versions, research data, and raw project assets.
+- `workshops/resources/` — workshop reference files, career development PDFs, and planning assets.
+- `projects/final-project/` — final project assets and generated retrospective package.
+- `archive/` — obsolete or legacy documents that are not part of the main portfolio.
 
 ## How to use this repo
 
@@ -36,7 +38,7 @@ I am interested in teams that want practical systems over hype, with a strong pr
 2. Review `INDEX.md` for a mapped list of files and the main takeaways.
 3. Open `career-docs/` for the most up-to-date career narrative and messaging.
 4. Use `resumes/` to view the current CV variants.
-5. Explore `research/` and `projects/` for supporting evidence of analysis, retrospective work, and output artifacts.
+5. Explore `research/` and `projects/` for supporting evidence of analysis and retrospective work.
 
 ## Key messages
 

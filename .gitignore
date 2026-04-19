@@ -2,6 +2,9 @@
 .obsidian/
 .playwright-mcp/
 .tmp/
+archive/
+projects/final-project/generated/exports/
+projects/final-project/html_board/
 *.pyc
 __pycache__/
 node_modules/
