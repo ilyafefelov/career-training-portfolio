@@ -28,7 +28,9 @@
 
 - `build_retrospective_artifacts.py` — Script used to generate retrospective artifacts from the final project.
 - `Retrospective Board_Neoversity.jam` — FigJam board source file for the final retrospective.
+- `html_board/` — Local HTML preview of the final retrospective board.
 - `generated/retrospective_board_package_ua.md` — Generated retrospective board package and guidance for submission.
+- `generated/exports/` — Exported board images, render files, and final project report.
 
 ## `archive/`
 

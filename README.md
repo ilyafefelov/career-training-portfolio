@@ -27,7 +27,7 @@ I am interested in teams that want practical systems over hype, with a strong pr
 - `resumes/` — resume variants and targeted CV copy.
 - `research/` — published reviews, market study analysis, and reflective writing.
 - `workshops/` — career workshop materials and supporting worksheets.
-- `projects/final-project/` — final project assets and generated retrospective package.
+- `projects/final-project/` — final project assets, generated retrospective package, HTML board export, and board image/report outputs.
 - `archive/` — legacy documents, older resume versions, research data, and raw project assets.
 
 ## How to use this repo
@@ -36,7 +36,7 @@ I am interested in teams that want practical systems over hype, with a strong pr
 2. Review `INDEX.md` for a mapped list of files and the main takeaways.
 3. Open `career-docs/` for the most up-to-date career narrative and messaging.
 4. Use `resumes/` to view the current CV variants.
-5. Explore `research/` and `projects/` for supporting evidence of analysis and project thinking.
+5. Explore `research/` and `projects/` for supporting evidence of analysis, retrospective work, and output artifacts.
 
 ## Key messages
 
