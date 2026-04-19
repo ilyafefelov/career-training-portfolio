@@ -1,0 +1,27 @@
+Vercel Deployment Instructions
+
+1) Ensure your repository is pushed to GitHub and you have access to the repo.
+
+2) On Vercel (https://vercel.com) sign in and click "New Project" → "Import Git Repository".
+
+3) Select the GitHub repository: `ilyafefelov/career-training-portfolio` (or your fork).
+
+4) IMPORTANT — Set the "Root Directory" (the folder Vercel will publish) to:
+
+   Recommended: `/projects/final-project/html_board`
+
+   Note: the repository also sometimes references `/final project/html_board` (space) in documentation; use the exact folder path shown in the repository tree. The correct path in this repo is `projects/final-project/html_board`.
+
+5) Framework Preset: choose "Other" / "Static Site".
+
+6) Build & Output Settings: No build command is required for a plain static HTML folder. Leave Build Command empty and set Output Directory to `/` (root of the selected folder).
+
+7) Environment Variables: not required for a static site. If you prefer CLI deploys, set `VERCEL_TOKEN` in your environment and use the CLI.
+
+8) Finish the import. Vercel will create a production deployment and provide a deployment URL.
+
+CLI alternative (from a machine with `VERCEL_TOKEN` set):
+
+  npx -y vercel "projects/final-project/html_board" --prod --token $VERCEL_TOKEN --confirm
+
+If you want me to attempt an automatic CLI deploy, provide a `VERCEL_TOKEN` in the environment and I will run the command non-interactively.
