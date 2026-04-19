@@ -11,3 +11,11 @@
 - Vercel deployment: NOT PERFORMED — `VERCEL_TOKEN` not found in the environment, so CLI deploy was skipped. See `vercel_deploy_instructions.txt` at `projects/final-project/generated/vercel_deploy_instructions.txt` for step-by-step publishing from GitHub or how to provide a token for CLI deploy.
 
 Generated on 2026-04-19 by automated edit.
+
+## Renders (generated)
+
+- projects/final-project/generated/board_render_updated.png
+- projects/final-project/generated/board_render_updated.jpg
+- projects/final-project/generated/board_4k_updated.png
+- projects/final-project/generated/board_A4_portrait_updated.pdf
+
