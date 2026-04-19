@@ -245,6 +245,100 @@
       box-shadow: var(--shadow);
     }
 
+    .figma-embed-shell {
+      position: relative;
+      overflow: clip;
+      animation-delay: 0.12s;
+      cursor: pointer;
+    }
+
+    .figma-embed-shell .section-head {
+      margin-bottom: 14px;
+    }
+
+    .figma-embed-shell .section-head p {
+      max-width: 46rem;
+    }
+
+    .figma-stage {
+      position: relative;
+      border-radius: 16px;
+      border: 1px solid rgba(17, 19, 24, 0.16);
+      overflow: hidden;
+      background: rgba(17, 19, 24, 0.03);
+      transition: max-height 420ms ease, opacity 320ms ease, transform 420ms ease;
+      max-height: 760px;
+    }
+
+    .figma-stage iframe {
+      display: block;
+      width: 100%;
+      min-height: clamp(340px, 52vw, 640px);
+      border: 0;
+    }
+
+    .figma-veil {
+      position: absolute;
+      inset: auto 0 0;
+      height: 10%;
+      min-height: 58px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 14px 14px;
+      background: linear-gradient(180deg, rgba(244, 238, 228, 0) 0%, rgba(244, 238, 228, 0.96) 68%, rgba(244, 238, 228, 1) 100%);
+      color: rgba(17, 19, 24, 0.82);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: opacity 260ms ease, transform 320ms ease, height 320ms ease;
+      pointer-events: none;
+    }
+
+    .figma-veil-toggle {
+      position: absolute;
+      left: 50%;
+      bottom: 14px;
+      transform: translate(-50%, 18px) scale(0.94);
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid rgba(17, 19, 24, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 252, 247, 0.94);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 600;
+      box-shadow: 0 12px 28px rgba(17, 19, 24, 0.14);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 220ms ease, transform 240ms ease, background-color 180ms ease;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .figma-veil-toggle:hover {
+      background: rgba(255, 252, 247, 1);
+    }
+
+    .figma-embed-shell.is-revealed .figma-veil {
+      opacity: 0;
+      transform: translateY(24px);
+      height: 0;
+    }
+
+    .figma-embed-shell.is-revealed .figma-veil-toggle {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0) scale(1);
+    }
+
+    .figma-embed-shell.is-covered .figma-stage {
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(26px);
+      pointer-events: none;
+    }
+
     .source-strip {
       animation-delay: 0.18s;
     }
@@ -485,6 +579,18 @@
     </section>
 
     <div class="content">
+      <section class="section figma-embed-shell" id="figma-retro-embed" aria-label="Embedded retrospective board from Figma">
+        <div class="section-head">
+          <h2>Інтерактивна FigJam-версія</h2>
+          <p>Нижче вбудована оригінальна дошка з Figma. Клікни по секції або затримай курсор на 3 секунди, щоб прибрати градієнт і керувати видимістю через кнопку.</p>
+        </div>
+        <div class="figma-stage">
+          <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/board/YdpBICQd307NXVDEoGqjVc/Retrospective-Board_Neoversity--Copy-?node-id=0-1&embed-host=share" allowfullscreen></iframe>
+          <div class="figma-veil">Потягнись до секції, щоб повністю відкрити embed</div>
+        </div>
+        <button type="button" class="figma-veil-toggle" aria-expanded="true">Сховати секцію знизу</button>
+      </section>
+
       <section class="source-strip">
         <div class="source-grid">
           <div>
@@ -580,5 +686,57 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.11.78-.25.78-.56 0-.27-.01-1.17-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.72 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.03 0 0 .97-.31 3.19 1.18a10.9 10.9 0 0 1 5.8 0c2.22-1.49 3.19-1.18 3.19-1.18.62 1.58.23 2.74.11 3.03.73.81 1.18 1.84 1.18 3.1 0 4.45-2.7 5.43-5.28 5.71.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.79.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
     <span>GitHub</span>
   </a>
+  <script>
+    (() => {
+      const shell = document.getElementById('figma-retro-embed');
+      if (!shell) return;
+
+      const toggle = shell.querySelector('.figma-veil-toggle');
+      let hoverTimer = null;
+
+      const reveal = () => {
+        shell.classList.add('is-revealed');
+      };
+
+      const setCovered = (covered) => {
+        shell.classList.toggle('is-covered', covered);
+        if (toggle) {
+          toggle.textContent = covered ? 'Показати секцію' : 'Сховати секцію знизу';
+          toggle.setAttribute('aria-expanded', covered ? 'false' : 'true');
+        }
+      };
+
+      const startHoverTimer = () => {
+        if (shell.classList.contains('is-revealed')) return;
+        hoverTimer = window.setTimeout(() => {
+          reveal();
+        }, 3000);
+      };
+
+      const clearHoverTimer = () => {
+        if (hoverTimer) {
+          window.clearTimeout(hoverTimer);
+          hoverTimer = null;
+        }
+      };
+
+      shell.addEventListener('click', (event) => {
+        if (toggle && event.target === toggle) return;
+        reveal();
+      });
+
+      shell.addEventListener('mouseenter', startHoverTimer);
+      shell.addEventListener('mouseleave', clearHoverTimer);
+
+      if (toggle) {
+        toggle.addEventListener('click', (event) => {
+          event.stopPropagation();
+          reveal();
+          const willBeCovered = !shell.classList.contains('is-covered');
+          setCovered(willBeCovered);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
