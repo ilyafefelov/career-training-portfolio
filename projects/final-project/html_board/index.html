@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Фінальний retrospective board — Illya Fefelov</title>
+  <meta name="description" content="Retrospective board and reflective notes for Illya Fefelov's AI integrations, LLMOps, and data infrastructure career direction." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4eee4;
+      --paper: rgba(255, 252, 247, 0.9);
+      --ink: #111318;
+      --muted: #5e5d59;
+      --line: rgba(17, 19, 24, 0.12);
+      --accent: #a5482a;
+      --deep: #161d26;
+      --yellow: #fff1bf;
+      --green: #d8efcf;
+      --red: #ffd8d8;
+      --blue: #dbe8ff;
+      --orange: #ffe2c9;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(24, 18, 11, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Jost", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(165, 72, 42, 0.16), transparent 28%),
+        radial-gradient(circle at right top, rgba(20, 54, 72, 0.12), transparent 24%),
+        linear-gradient(180deg, #efe5d8 0%, #f4eee4 24%, #f6f2eb 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .github-bubble {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 252, 247, 0.7);
+      background: rgba(22, 29, 38, 0.9);
+      color: #fff7ef;
+      box-shadow: 0 18px 42px rgba(17, 17, 17, 0.18);
+      backdrop-filter: blur(14px);
+      font-weight: 600;
+      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .github-bubble:hover {
+      transform: translateY(-3px);
+      background: #10151d;
+      box-shadow: 0 22px 50px rgba(17, 17, 17, 0.22);
+    }
+
+    .github-bubble svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      fill: currentColor;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), 1260px);
+      margin: 0 auto;
+      padding: 24px 0 64px;
+    }
+
+    .hero {
+      min-height: calc(100svh - 48px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-panel,
+    .content > * {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fade-up 0.75s ease forwards;
+    }
+
+    .hero-panel { animation-delay: 0.12s; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 247, 239, 0.72);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.88rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .hero-copy {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border-radius: 28px;
+      background:
+        linear-gradient(155deg, rgba(16, 21, 29, 0.96), rgba(29, 20, 16, 0.92)),
+        linear-gradient(120deg, rgba(165, 72, 42, 0.38), transparent 48%);
+      color: #fff7ef;
+      box-shadow: 0 28px 80px rgba(17, 17, 17, 0.18);
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      right: -8%;
+      bottom: -14%;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(165, 72, 42, 0.28), transparent 68%);
+      pointer-events: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Arsenal", Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      margin-top: 18px;
+      max-width: 10ch;
+      font-size: clamp(2.8rem, 8vw, 5.9rem);
+      line-height: 0.94;
+    }
+
+    .hero-copy p {
+      margin: 18px 0 0;
+      max-width: 37rem;
+      font-size: clamp(1.02rem, 2vw, 1.22rem);
+      line-height: 1.62;
+      color: rgba(255, 247, 239, 0.84);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 247, 239, 0.16);
+      background: rgba(255, 247, 239, 0.08);
+      color: #fff7ef;
+      font-weight: 600;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .chip:hover,
+    .source-link:hover,
+    .home-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-panel {
+      display: grid;
+      align-content: end;
+      gap: 16px;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 252, 247, 0.72);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.46);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel h2 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1;
+    }
+
+    .hero-panel p,
+    .hero-panel li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .hero-panel ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-panel li {
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .source-strip,
+    .section,
+    .note-panel {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 252, 247, 0.74);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.46);
+      box-shadow: var(--shadow);
+    }
+
+    .source-strip {
+      animation-delay: 0.18s;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .source-grid p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 48rem;
+    }
+
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .source-link,
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(165, 72, 42, 0.1);
+      color: var(--accent);
+      font-weight: 600;
+      transition: transform 180ms ease, background-color 180ms ease;
+    }
+
+    .board {
+      animation-delay: 0.24s;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .lane {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .lane-title {
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      font-family: "Arsenal", Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .sticky {
+      position: relative;
+      min-height: 86px;
+      padding: 14px 14px 16px;
+      border-radius: var(--radius);
+      box-shadow: 0 12px 30px rgba(18, 17, 16, 0.08);
+      line-height: 1.52;
+      font-weight: 500;
+    }
+
+    .sticky::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent);
+      pointer-events: none;
+    }
+
+    .sticky.small {
+      min-height: 60px;
+      font-size: 0.95rem;
+    }
+
+    .yellow { background: linear-gradient(180deg, #fff8dd, var(--yellow)); }
+    .green { background: linear-gradient(180deg, #eef9e9, var(--green)); }
+    .red { background: linear-gradient(180deg, #fff0f0, var(--red)); }
+    .blue { background: linear-gradient(180deg, #eef4ff, var(--blue)); }
+    .orange { background: linear-gradient(180deg, #fff1e2, var(--orange)); }
+
+    .milestones {
+      animation-delay: 0.3s;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    .section-head p,
+    .note-grid p,
+    .note-grid li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.66;
+    }
+
+    .milestone-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .milestone-grid .sticky {
+      background: rgba(255, 252, 247, 0.86);
+      min-height: auto;
+    }
+
+    .note-panel {
+      animation-delay: 0.36s;
+    }
+
+    .note-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+      gap: 24px;
+    }
+
+    .note-grid h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 0.98;
+      max-width: 10ch;
+    }
+
+    .note-grid h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .note-grid .stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .longform {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .longform p + p {
+      margin-top: 14px;
+    }
+
+    .longform strong {
+      color: var(--ink);
+    }
+
+    @keyframes fade-up {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .source-grid,
+      .board,
+      .section-head,
+      .note-grid,
+      .milestone-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .source-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(calc(100% - 20px), 1260px);
+        padding-bottom: 44px;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .source-strip,
+      .section,
+      .note-panel {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 14vw, 4rem);
+      }
+
+      .github-bubble {
+        right: 14px;
+        bottom: 14px;
+        min-height: 50px;
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <header class="hero-copy">
+        <div class="eyebrow">Retrospective / Career direction</div>
+        <h1>Фінальний retrospective board</h1>
+        <p>У цій рефлексії я намагаюся показати не лише напрям руху, а й глибші мотиви, компроміси і те, як саме моя траєкторія звужується до зрозумілого професійного профілю.</p>
+        <div class="actions">
+          <a class="chip" href="/">Back to portfolio index</a>
+          <a class="chip" href="https://www.linkedin.com/in/illyafefelov/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="chip" href="https://docs.google.com/document/d/1EToaeS8X1PMUpMuqVpWzrtTNfvOaln-ehl9uRTK78QY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Google Doc</a>
+        </div>
+      </header>
+
+      <aside class="hero-panel">
+        <div class="eyebrow" style="color: var(--accent);">Що тут стало чіткіше</div>
+        <h2>Не просто дошка, а narrative з уточненою позицією.</h2>
+        <p>Початкова ціль була ширшою: full-stack, data engineering, навіть product ownership у довшій перспективі. У цій версії я свідомо фокусую те, що вже реально підтверджено моїм досвідом.</p>
+        <ul>
+          <li>Є delivery-база: full-stack, automation, data workflows, measurable business impact.</li>
+          <li>Є чесно названі прогалини: cloud/Kubernetes depth, комерційний MLOps, сертифікації.</li>
+          <li>Є нова рамка: AI integrations, LLMOps, data infrastructure як найбільш правдоподібна точка зростання.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <div class="content">
+      <section class="source-strip">
+        <div class="source-grid">
+          <div>
+            <h2 style="font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1;">Джерела та опорні матеріали</h2>
+            <p>Для мене важливо, щоб цю рефлексію можна було перевірити по вихідних артефактах, а не лише по короткому summary. Тому основні документи я відкриваю напряму.</p>
+          </div>
+          <div class="source-links">
+            <a class="source-link" href="/workshops/resources/%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BA%D0%B0%D1%80%27%D1%94%D1%80%D0%BD%D0%B8%D1%85%20%D1%86%D1%96%D0%BB%D0%B5%D0%B9.pdf" target="_blank" rel="noopener noreferrer">Кар'єрні цілі PDF</a>
+            <a class="source-link" href="/workshops/how-to-get-a-raise/Illya_Fefelov_SWOT_IPR_filled.xlsx" target="_blank" rel="noopener noreferrer">SWOT + ІПР workbook</a>
+            <a class="source-link" href="https://djinni.co/q/b34bf54de1/" target="_blank" rel="noopener noreferrer">Djinni profile</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section board" aria-label="Retrospective board columns">
+        <div class="lane">
+          <div class="lane-title">Appreciation</div>
+          <div class="sticky yellow">10+ років у delivery та full-stack дали не лише технічну базу, а production-thinking: я вмію доводити системи до реального використання, а не лише до демо.</div>
+          <div class="sticky yellow">У Full-Iron я вже будував automation і data workflows з вимірюваним ефектом: зниження ручної праці на 20%.</div>
+          <div class="sticky yellow small">Scraper/ETL ініціатива з ефектом понад 7 млн грн нетто підтверджує, що мій фокус уже зараз ближчий до системної цінності, ніж до суто інтерфейсної роботи.</div>
+        </div>
+
+        <div class="lane">
+          <div class="lane-title">Continue Doing</div>
+          <div class="sticky green">Продовжувати будувати narrative навколо orchestration, automation й AI integrations.</div>
+          <div class="sticky green">Використовувати full-stack бекграунд як перевагу для end-to-end AI systems, а не як запасний план.</div>
+          <div class="sticky green small">Перетворювати learning у public proof: thesis, pet-проєкти, workflows, deployment notes.</div>
+        </div>
+
+        <div class="lane">
+          <div class="lane-title">Stop Doing</div>
+          <div class="sticky red">Не позиціонувати себе надто широко; стара рамка full-stack data engineer + product owner звучала амбітно, але занадто розмито для ринку.</div>
+          <div class="sticky red">Не відкладати публічну упаковку кейсів до ідеального моменту: видимість прогресу зараз цінніша за polished finish потім.</div>
+        </div>
+
+        <div class="lane">
+          <div class="lane-title">Start Doing</div>
+          <div class="sticky blue">Почати оформлювати 1-2 публічні кейси: проблема, архітектура, стек, результат і чітко вимірювана бізнесова або операційна користь.</div>
+          <div class="sticky blue">Почати будувати cloud/Kubernetes layer навколо одного реального workflow, щоб закрити найвидиміший credibility gap.</div>
+          <div class="sticky blue small">Почати короткі публічні технічні розбори і application pipeline, аби narrative працював не лише в CV, а й у відкритому просторі.</div>
+        </div>
+
+        <div class="lane">
+          <div class="lane-title">Actions</div>
+          <div class="sticky orange">Portfolio case — готовий артефакт до 30.06.2026: README, схема, репо, short demo.</div>
+          <div class="sticky orange small">Cloud deploy — ready by 31.07.2026: IaC + reproducible run.</div>
+          <div class="sticky orange small">Public positioning — CV/LinkedIn/self-presentation synchronized до 15.05.2026.</div>
+          <div class="sticky orange small">Market loop — 15-20 відгуків щомісяця, трекер фідбеку, корекція меседжу по response quality.</div>
+        </div>
+      </section>
+
+      <section class="section milestones">
+        <div class="section-head">
+          <h2>Проміжні цілі на 6-12 місяців</h2>
+          <p>План зберігає часову конкретику, але тепер читається як шлях до вузькішої ролі, а не як набір паралельних бажань.</p>
+        </div>
+        <div class="milestone-grid">
+          <div class="sticky small">До 30.06.2026: один production-grade portfolio case у напрямі AI integrations / data workflow з репозиторієм, схемою і short demo.</div>
+          <div class="sticky small">До 31.07.2026: один cloud або Kubernetes deployment для ML/LLM чи data workflow з IaC і відтворюваним запуском.</div>
+          <div class="sticky small">До 31.05.2026: один публічний proof point з thesis або agentic workflow експерименту у форматі post / case note / demo.</div>
+          <div class="sticky small">До 15.05.2026: синхронізований package з LinkedIn, self-presentation і двома CV-версіями під AI Integrations / LLMOps / Data Infrastructure.</div>
+          <div class="sticky small">На 3 місяці підряд: стабільний pipeline 15-20 цільових відгуків щомісяця з трекінгом фідбеку та корекцією позиціонування.</div>
+        </div>
+      </section>
+
+      <section class="note-panel">
+        <div class="note-grid">
+          <div>
+            <h2>Що по рефлексії: чого вже досить, а чого ще бракувало</h2>
+          </div>
+          <div class="stack">
+            <div>
+              <h3>Що тут варто побачити рекрутеру</h3>
+              <p>У цих матеріалах уже добре видно стійкі професійні орієнтири: мені важливі автономія в роботі, практична користь результату, зрозумілий вплив на систему або процес і довгострокова стабільність без втрати гнучкості. Для recruiter review це важливо не як особиста рефлексія, а як пояснення, чому мій фокус закономірно звужується до AI integrations, LLMOps та data infrastructure.</p>
+            </div>
+
+            <div>
+              <h3>Що я свідомо уточнив у позиціонуванні</h3>
+              <p>Раніше професійна рамка була занадто широкою: full-stack, data engineering, AI, managerial growth і product ownership одночасно. Для потенційного роботодавця така ширина створює шум замість чіткого сигналу. Тому зараз я свідомо подаю профіль вужче і точніше: через practical AI systems, orchestration, automation, data workflows та delivery-oriented engineering.</p>
+            </div>
+
+            <div class="longform">
+              <p><strong>Позиційна нотатка.</strong> За останній етап рефлексії мені стало ясніше, що мій найсильніший перехід не в "AI взагалі", а в ролі, де AI вбудовується у workflow, orchestration і delivery. У мене вже є підтверджений досвід в automation, data flows, full-stack delivery і побудові рішень із вимірюваним ефектом. Тому логічна траєкторія зараз не розширюватися ще більше, а звузитися до AI integrations, LLMOps та data infrastructure.</p>
+              <p>Окремо важливо, що ця рефлексія чесно показує і прогалини: комерційний MLOps досвід, cloud depth, Kubernetes credibility. Саме тому наступний етап має бути не про нові формулювання, а про публічні докази: один сильний кейс, один deploy, один короткий technical proof point, який можна показати без додаткових пояснень.</p>
+              <p>Як внутрішня рамка ця рефлексія вже достатньо сильна, але як зовнішній positioning artifact їй бракувало long-form пояснення. Саме тому наступні ітерації для мене мають посилювати не нові формулювання, а докази: кейси, deploy, технічні розбори і публічні proof points.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <a class="github-bubble" href="https://github.com/ilyafefelov/career-training-portfolio" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.11.78-.25.78-.56 0-.27-.01-1.17-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.72 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.03 0 0 .97-.31 3.19 1.18a10.9 10.9 0 0 1 5.8 0c2.22-1.49 3.19-1.18 3.19-1.18.62 1.58.23 2.74.11 3.03.73.81 1.18 1.84 1.18 3.1 0 4.45-2.7 5.43-5.28 5.71.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.79.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+    <span>GitHub</span>
+  </a>
+</body>
+</html>

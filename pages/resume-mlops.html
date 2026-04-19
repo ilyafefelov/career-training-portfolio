@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MLOps Resume — Illya Fefelov</title>
+  <meta name="description" content="MLOps resume for Illya Fefelov with summary, skills, experience, projects, and education." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f1ece4;
+      --paper: rgba(255,252,247,.88);
+      --ink: #12161b;
+      --muted: #5e5c58;
+      --line: rgba(18,22,27,.12);
+      --accent: #8f4428;
+      --shadow: 0 22px 60px rgba(16,18,20,.1);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Jost", sans-serif;
+      background: radial-gradient(circle at top left, rgba(143,68,40,.14), transparent 25%), linear-gradient(180deg, #ede2d4 0%, var(--bg) 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .github-bubble {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,252,247,.76);
+      background: rgba(18,22,27,.9);
+      color: #fbf7f0;
+      box-shadow: 0 18px 42px rgba(16,18,20,.18);
+      backdrop-filter: blur(14px);
+      font-weight: 600;
+      transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
+    }
+    .github-bubble:hover { transform: translateY(-3px); background: #0e1116; box-shadow: 0 22px 50px rgba(16,18,20,.22); }
+    .github-bubble svg { width: 18px; height: 18px; flex: 0 0 auto; fill: currentColor; }
+    .page { width: min(calc(100% - 28px), 1180px); margin: 0 auto; padding: 24px 0 56px; }
+    .hero, .section { opacity: 0; transform: translateY(18px); animation: rise .75s ease forwards; }
+    .hero { min-height: calc(100svh - 48px); display: grid; grid-template-columns: 1.08fr .92fr; gap: 22px; }
+    .hero-copy { padding: 30px; border-radius: 28px; color: #fbf7f0; background: linear-gradient(150deg, rgba(18,22,27,.96), rgba(74,39,24,.92)); box-shadow: 0 28px 80px rgba(16,18,20,.18); }
+    .panel, .section { padding: 24px; border-radius: 24px; background: var(--paper); border: 1px solid rgba(255,255,255,.5); backdrop-filter: blur(10px); box-shadow: var(--shadow); }
+    .hero-side { animation-delay: .1s; display: grid; align-content: end; gap: 14px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .88rem; color: rgba(251,247,240,.72); }
+    h1,h2,h3 { margin: 0; font-family: "Arsenal", serif; line-height: .98; }
+    h1 { margin-top: 16px; font-size: clamp(2.8rem, 8vw, 5.2rem); max-width: 9ch; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    p, li { line-height: 1.66; }
+    .hero-copy p { max-width: 40rem; color: rgba(251,247,240,.86); }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .chip { display: inline-flex; min-height: 44px; align-items: center; padding: 0 16px; border-radius: 999px; background: rgba(251,247,240,.08); border: 1px solid rgba(251,247,240,.16); font-weight: 600; transition: transform .18s ease; }
+    .chip:hover { transform: translateY(-2px); }
+    .hero-side ul, .section ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    .content { display: grid; gap: 20px; margin-top: 22px; }
+    .section { animation-delay: .16s; }
+    .section-head { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 18px; margin-bottom: 18px; }
+    .section-head p, .item p, .meta { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
+    .item { padding-top: 14px; border-top: 1px solid var(--line); }
+    .skills { display: grid; gap: 12px; }
+    .skills strong { color: var(--ink); }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 900px) {
+      .hero, .section-head, .grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .github-bubble { right: 14px; bottom: 14px; min-height: 50px; padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero hero-copy">
+        <div class="eyebrow">Resume</div>
+        <h1>MLOps Resume</h1>
+        <p>MLOps / AI Engineer with 10+ years in IT spanning full-stack development, front-end product delivery, workflow automation, and recent Data Science training.</p>
+        <div class="chips">
+          <a class="chip" href="/">Back to portfolio</a>
+          <a class="chip" href="/resumes/resume-mlops-2026.md" target="_blank" rel="noopener noreferrer">Open markdown source</a>
+          <a class="chip" href="/resumes/ILLYA%20FEFELOV.Resume%20.2026.%20rev.3.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+        </div>
+      </div>
+      <aside class="panel hero-side">
+        <h2>Quick fit summary</h2>
+        <ul>
+          <li>Hands-on with Python, Docker, Kubernetes, Airflow, MLflow, Terraform, LangChain, and OpenAI SDK.</li>
+          <li>Comfortable across AI integrations, ETL, data pipelines, deployment flows, and product-facing engineering delivery.</li>
+          <li>Targeting MLOps, AI Engineering, LLMOps, AI integrations, and data/ML infrastructure roles.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <div class="content">
+      <section class="section">
+        <div class="section-head">
+          <h2>Technical profile</h2>
+          <p>Here I present the parts of my resume that matter most for this transition: summary first, then grouped skills, then evidence in experience and projects.</p>
+        </div>
+        <div class="skills">
+          <p><strong>Programming:</strong> Python, JavaScript, TypeScript, Java</p>
+          <p><strong>MLOps / DevOps:</strong> Docker, Kubernetes, Git, CI/CD, Airflow, MLflow, Terraform</p>
+          <p><strong>Machine Learning / Data:</strong> Scikit-learn, Pandas, NumPy, Polars, TensorFlow, PyTorch, ETL, model training, evaluation, data visualization</p>
+          <p><strong>AI / LLM:</strong> LangChain, OpenAI SDK, RAG pipelines, vector databases, Weaviate</p>
+          <p><strong>Data / Backend:</strong> PostgreSQL, MongoDB, REST APIs, API integrations, real-time data pipelines, automation workflows, authentication systems</p>
+          <p><strong>Frontend / Product Engineering:</strong> Vue.js, Nuxt 3, HTML, CSS, Tailwind</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>My commercial work remains the strongest credibility layer in this profile, so I keep these entries concise, concrete, and measurable.</p>
+        </div>
+        <div class="grid">
+          <article class="item">
+            <h3>Full-Iron Design, LLC</h3>
+            <div class="meta">Full-Stack Developer & Designer | 2013 - Present</div>
+            <ul>
+              <li>Built and maintained CMS-based web products, API integrations, and automation workflows across digital delivery projects.</li>
+              <li>Developed real-time data aggregation pipelines and ETL workflows that reduced manual labor by 20%.</li>
+              <li>Led a scraper ETL initiative that facilitated more than UAH 7 million in net profit in 1 year.</li>
+            </ul>
+          </article>
+          <article class="item">
+            <h3>StayGroup (formerly GameX)</h3>
+            <div class="meta">Vue.js Developer | Aug 2022 - Sep 2023</div>
+            <ul>
+              <li>Developed and maintained frontend features for high-traffic consumer-facing digital platforms.</li>
+              <li>Supported live products through feature delivery, maintenance, and interface improvements.</li>
+            </ul>
+          </article>
+          <article class="item">
+            <h3>Agentic Trading Management Thesis Track</h3>
+            <div class="meta">MSc Student / Project Author | 2024 - Present</div>
+            <ul>
+              <li>Exploring Python-based ML workflow concepts and MLOps-oriented tooling, including Dagster and PydanticAI.</li>
+              <li>Using academic work to strengthen practical understanding of AI workflows, orchestration, and deployment-oriented thinking.</li>
+            </ul>
+          </article>
+          <article class="item">
+            <h3>Education</h3>
+            <div class="meta">Selected education and training</div>
+            <ul>
+              <li>MSc in Data Science, Neoversity - Woolf | Mar 2024 - Present</li>
+              <li>Master's in Software Engineering, MAUP | 2024 - Present</li>
+              <li>BA in International Marketing Management, Hanze University</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <a class="github-bubble" href="https://github.com/ilyafefelov/career-training-portfolio" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.11.78-.25.78-.56 0-.27-.01-1.17-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.72 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.03 0 0 .97-.31 3.19 1.18a10.9 10.9 0 0 1 5.8 0c2.22-1.49 3.19-1.18 3.19-1.18.62 1.58.23 2.74.11 3.03.73.81 1.18 1.84 1.18 3.1 0 4.45-2.7 5.43-5.28 5.71.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.79.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+    <span>GitHub</span>
+  </a>
+</body>
+</html>

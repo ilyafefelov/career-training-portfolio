@@ -1,11 +1,46 @@
+# IDE and editor directories
 .vscode/
 .obsidian/
+.idea/
+
+# MCP and automation artifacts
 .playwright-mcp/
 .tmp/
+
+# Archive and generated content
 archive/
 projects/final-project/generated/exports/
-projects/final-project/html_board/
+
+# Python
 *.pyc
 __pycache__/
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv
+
+# Node
 node_modules/
+npm-debug.log
+yarn-error.log
+
+# OS files
 .DS_Store
+Thumbs.db
+*~
+
+# Vercel
+.vercel
+
+# Temporary and backup files
+*.bak
+*.tmp
+*.swp
+*.swo
+*~
+
+# Large binary files (keep specific ones in git with git lfs or exceptions)
+# *.xlsx - keeping workshop files
+# *.pdf - keeping career documents

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/profile/linkedin",
+      "destination": "/pages/linkedin-profile.html"
+    },
+    {
+      "source": "/profile/linkedin/",
+      "destination": "/pages/linkedin-profile.html"
+    },
+    {
+      "source": "/profile/interests",
+      "destination": "/pages/professional-interests.html"
+    },
+    {
+      "source": "/profile/interests/",
+      "destination": "/pages/professional-interests.html"
+    },
+    {
+      "source": "/profile/resume-mlops",
+      "destination": "/pages/resume-mlops.html"
+    },
+    {
+      "source": "/profile/resume-mlops/",
+      "destination": "/pages/resume-mlops.html"
+    },
+    {
+      "source": "/retrospective",
+      "destination": "/projects/final-project/html_board/index.html"
+    },
+    {
+      "source": "/retrospective/",
+      "destination": "/projects/final-project/html_board/index.html"
+    }
+  ]
+}

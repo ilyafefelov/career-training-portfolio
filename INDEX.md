@@ -1,5 +1,21 @@
 # Repository Index
 
+> **Quick Links:**  
+> - **Live Site:** [fefelovcareertraindocs.vercel.app](https://fefelovcareertraindocs.vercel.app/)  
+> - **MLOps Resume:** [/profile/resume-mlops](https://fefelovcareertraindocs.vercel.app/profile/resume-mlops)  
+> - **LinkedIn Profile:** [/profile/linkedin](https://fefelovcareertraindocs.vercel.app/profile/linkedin)  
+> - **Retrospective Board:** [/retrospective](https://fefelovcareertraindocs.vercel.app/retrospective)
+
+## Public-Facing Pages (`pages/` directory)
+
+- **`linkedin-profile.html`** — Rendered LinkedIn profile page with headline, About section, and experience narrative. Accessible at `/profile/linkedin`.
+- **`professional-interests.html`** — Ukrainian positioning map, target domains, and recurring professional themes. Accessible at `/profile/interests`.
+- **`resume-mlops.html`** — MLOps-focused resume with summary, skills, and selected experience in web format. Accessible at `/profile/resume-mlops`.
+
+## Interactive Project
+
+- **`projects/final-project/html_board/index.html`** — Interactive retrospective board from final project. Accessible at `/retrospective`.
+
 ## `career-docs/`
 
 - `linkedin-profile.md` — Draft LinkedIn headline, About section, and experience narrative for public profile copy.
@@ -31,6 +47,10 @@
 - `build_retrospective_artifacts.py` — Script used to generate retrospective artifacts from the final project.
 - `Retrospective Board_Neoversity.jam` — FigJam board source file for the final retrospective.
 - `generated/retrospective_board_package_ua.md` — Generated retrospective board package and guidance for submission.
+
+## `scripts/`
+
+- `parse_board.py` — Python utility script for parsing and processing board data.
 
 ## `archive/`
 

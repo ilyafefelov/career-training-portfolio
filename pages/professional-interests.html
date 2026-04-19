@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Професійні інтереси — Illya Fefelov</title>
+  <meta name="description" content="Professional interests, target domains, and positioning map for Illya Fefelov." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f3efe5;
+      --paper: rgba(255,252,247,.86);
+      --ink: #14161b;
+      --muted: #5e5d58;
+      --line: rgba(20,22,27,.12);
+      --accent: #9e4d2f;
+      --shadow: 0 22px 60px rgba(17,18,19,.1);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Jost", sans-serif;
+      background: radial-gradient(circle at top right, rgba(158,77,47,.14), transparent 26%), linear-gradient(180deg, #efe6da 0%, var(--bg) 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .github-bubble {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,252,247,.76);
+      background: rgba(20,24,30,.9);
+      color: #fbf7f0;
+      box-shadow: 0 18px 42px rgba(16,18,20,.18);
+      backdrop-filter: blur(14px);
+      font-weight: 600;
+      transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
+    }
+    .github-bubble:hover { transform: translateY(-3px); background: #11151a; box-shadow: 0 22px 50px rgba(16,18,20,.22); }
+    .github-bubble svg { width: 18px; height: 18px; flex: 0 0 auto; fill: currentColor; }
+    .page { width: min(calc(100% - 28px), 1160px); margin: 0 auto; padding: 24px 0 56px; }
+    .hero, .section { opacity: 0; transform: translateY(18px); animation: rise .75s ease forwards; }
+    .hero { min-height: calc(100svh - 48px); display: grid; grid-template-columns: 1.08fr .92fr; gap: 22px; }
+    .hero-copy { padding: 30px; border-radius: 28px; color: #fbf7f0; background: linear-gradient(150deg, rgba(20,24,30,.96), rgba(75,39,24,.9)); box-shadow: 0 28px 80px rgba(16,18,20,.18); }
+    .panel, .section { padding: 24px; border-radius: 24px; background: var(--paper); border: 1px solid rgba(255,255,255,.5); backdrop-filter: blur(10px); box-shadow: var(--shadow); }
+    .hero-side { animation-delay: .1s; display: grid; align-content: end; gap: 14px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .88rem; color: rgba(251,247,240,.72); }
+    h1,h2,h3 { margin: 0; font-family: "Arsenal", serif; line-height: .98; }
+    h1 { margin-top: 16px; font-size: clamp(2.8rem, 8vw, 5.4rem); max-width: 10ch; }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+    p, li { line-height: 1.68; }
+    .hero-copy p { max-width: 40rem; color: rgba(251,247,240,.86); }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .chip { display: inline-flex; min-height: 44px; align-items: center; padding: 0 16px; border-radius: 999px; background: rgba(251,247,240,.08); border: 1px solid rgba(251,247,240,.16); font-weight: 600; transition: transform .18s ease; }
+    .chip:hover { transform: translateY(-2px); }
+    .hero-side ul, .section ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    .content { display: grid; gap: 20px; margin-top: 22px; }
+    .section { animation-delay: .16s; }
+    .section-head { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 18px; margin-bottom: 18px; }
+    .section-head p, .item p { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
+    .item { padding-top: 14px; border-top: 1px solid var(--line); }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 900px) {
+      .hero, .section-head, .grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .github-bubble { right: 14px; bottom: 14px; min-height: 50px; padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero hero-copy">
+        <div class="eyebrow">Позиціонування / Інтереси</div>
+        <h1>Розуміння професійних інтересів</h1>
+        <p>У цьому документі я зводжу в одну рамку реальні доменні сигнали, технічні інтереси і теми, навколо яких хочу будувати свій публічний професійний образ.</p>
+        <div class="chips">
+          <a class="chip" href="/">Назад до index</a>
+          <a class="chip" href="/career-docs/professional-interests.md" target="_blank" rel="noopener noreferrer">Відкрити markdown</a>
+          <a class="chip" href="/retrospective">Відкрити retrospective</a>
+        </div>
+      </div>
+      <aside class="panel hero-side">
+        <h2>Ядро інтересів</h2>
+        <ul>
+          <li>applied MLOps / AI Engineering замість абстрактного “AI взагалі”;</li>
+          <li>orchestration, data workflows, automation і practical AI systems;</li>
+          <li>energy, forecasting, decision-support та enterprise/critical infrastructure домени;</li>
+          <li>agentic tooling, MCP, knowledge-backed research workflows.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <div class="content">
+      <section class="section">
+        <div class="section-head">
+          <h2>Короткий висновок</h2>
+          <p>Для мене важливо показати, що ці інтереси не зводяться до загального “подобається AI”, а мають конкретну інженерну форму і зрозумілі домени застосування.</p>
+        </div>
+        <p>Ядро професійних інтересів знаходиться на перетині applied MLOps / AI Engineering, orchestration і data/ML workflows, AI integrations та automation, energy / enterprise / decision-support use cases, agentic tooling і product engineering як фундаменту для production-ready systems.</p>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Високовпевнені напрями</h2>
+          <p>Тут я залишаю ті теми, які повторюються в кар'єрних матеріалах і в історії запитів, а отже виглядають не випадковим інтересом, а стійким патерном.</p>
+        </div>
+        <div class="grid">
+          <article class="item">
+            <h3>MLOps, AI Engineering, LLMOps</h3>
+            <p>Фокус на end-to-end AI/ML workflows, orchestration, LLM integration, reproducibility, observability, reliability і зв'язку між моделлю, даними, інфраструктурою та бізнес-результатом.</p>
+          </article>
+          <article class="item">
+            <h3>Data workflows та automation</h3>
+            <p>Інтерес не просто до “даних”, а до систем, які перетворюють ручні процеси у відтворювані pipeline-структури з вимірюваним ефектом.</p>
+          </article>
+          <article class="item">
+            <h3>Energy, forecasting, decision support</h3>
+            <p>Це один із найсильніших доменних сигналів: forecasting, dashboards, operational data і реальний зв'язок із прикладними системами та infrastructure contexts.</p>
+          </article>
+          <article class="item">
+            <h3>Agentic workflows і knowledge systems</h3>
+            <p>Окремий інтерес до MCP, skills, agents, NotebookLM/Gemini-подібних research flows і knowledge-backed AI workflows замість “галюцинаційного” tooling.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Що варто деемфазувати</h2>
+          <p>Я свідомо прибираю другорядні контексти, які відволікають увагу від системного AI/data напряму і послаблюють основний професійний сигнал.</p>
+        </div>
+        <div class="grid">
+          <article class="item">
+            <h3>Gaming як головний контекст</h3>
+            <p>Gaming-досвід корисний як доказ production experience, але не як основна тема бренду.</p>
+          </article>
+          <article class="item">
+            <h3>Загальні фрази про “люблю AI”</h3>
+            <p>Набагато сильніше звучить мова про orchestration, pipelines, infra, reliability і domain use cases.</p>
+          </article>
+          <article class="item">
+            <h3>Чистий frontend без системного контексту</h3>
+            <p>Frontend краще показувати як interface layer для data/AI systems або як product delivery side of AI-enabled systems.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <a class="github-bubble" href="https://github.com/ilyafefelov/career-training-portfolio" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.11.78-.25.78-.56 0-.27-.01-1.17-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.72 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.03 0 0 .97-.31 3.19 1.18a10.9 10.9 0 0 1 5.8 0c2.22-1.49 3.19-1.18 3.19-1.18.62 1.58.23 2.74.11 3.03.73.81 1.18 1.84 1.18 3.1 0 4.45-2.7 5.43-5.28 5.71.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.79.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+    <span>GitHub</span>
+  </a>
+</body>
+</html>

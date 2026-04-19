@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Illya Fefelov — Career Training Portfolio</title>
+  <meta name="description" content="Career portfolio index for Illya Fefelov: MLOps, AI Engineering, LLMOps, data infrastructure, retrospective materials, resumes, and research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --paper: rgba(255, 252, 247, 0.88);
+      --ink: #151515;
+      --muted: #5f5a53;
+      --line: rgba(21, 21, 21, 0.14);
+      --accent: #b5482d;
+      --accent-soft: rgba(181, 72, 45, 0.12);
+      --shadow: 0 24px 60px rgba(47, 27, 12, 0.12);
+      --radius: 22px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Jost", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(181, 72, 45, 0.16), transparent 28%),
+        radial-gradient(circle at right 20%, rgba(25, 74, 82, 0.12), transparent 24%),
+        linear-gradient(180deg, #efe3d5 0%, #f6f1ea 18%, #f5f0e8 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .github-bubble {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 252, 247, 0.7);
+      background: rgba(21, 21, 21, 0.88);
+      color: #fff9f3;
+      box-shadow: 0 18px 40px rgba(21, 21, 21, 0.18);
+      backdrop-filter: blur(14px);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .github-bubble:hover {
+      transform: translateY(-3px);
+      background: #0f1114;
+      box-shadow: 0 22px 48px rgba(21, 21, 21, 0.22);
+    }
+
+    .github-bubble svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      fill: currentColor;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 24px 0 72px;
+    }
+
+    .hero {
+      min-height: calc(100svh - 48px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 32px;
+      align-items: end;
+      padding: 28px 0 40px;
+    }
+
+    .hero-copy,
+    .hero-side,
+    .section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: rise 0.8s ease forwards;
+    }
+
+    .hero-side { animation-delay: 0.12s; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Arsenal", Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      margin-top: 18px;
+      max-width: 10ch;
+      font-size: clamp(3.4rem, 9vw, 7rem);
+      line-height: 0.95;
+    }
+
+    .hero-copy p {
+      max-width: 42rem;
+      margin: 20px 0 0;
+      font-size: clamp(1.08rem, 2.2vw, 1.3rem);
+      line-height: 1.55;
+      color: rgba(21, 21, 21, 0.8);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 252, 247, 0.68);
+      backdrop-filter: blur(8px);
+    }
+
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+
+    .lang-switch button.is-active {
+      background: var(--ink);
+      color: #fff9f3;
+    }
+
+    .button,
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .button {
+      background: var(--ink);
+      color: #fff9f3;
+    }
+
+    .ghost {
+      border: 1px solid var(--line);
+      background: rgba(255, 252, 247, 0.64);
+    }
+
+    .button:hover,
+    .ghost:hover,
+    .nav-link:hover,
+    .file-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-side {
+      align-self: stretch;
+      position: relative;
+      overflow: hidden;
+      border-radius: calc(var(--radius) + 6px);
+      padding: 24px;
+      background:
+        linear-gradient(160deg, rgba(24, 27, 31, 0.96), rgba(37, 22, 18, 0.88)),
+        linear-gradient(120deg, rgba(181, 72, 45, 0.4), transparent 50%);
+      color: #f9f3eb;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-side::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -15% auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181, 72, 45, 0.28), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-side p,
+    .hero-side li {
+      color: rgba(249, 243, 235, 0.86);
+      line-height: 1.5;
+    }
+
+    .hero-side ul {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-side li {
+      padding-top: 12px;
+      border-top: 1px solid rgba(249, 243, 235, 0.16);
+    }
+
+    .sections {
+      display: grid;
+      gap: 18px;
+    }
+
+    .section {
+      animation-delay: 0.18s;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 54rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .nav-link {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      transition: transform 180ms ease, background-color 180ms ease;
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 32px;
+    }
+
+    .directory {
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .directory h3 {
+      font-size: 1.55rem;
+    }
+
+    .directory p {
+      margin: 10px 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .file-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .file-link {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(21, 21, 21, 0.08);
+      transition: transform 180ms ease, color 180ms ease;
+    }
+
+    .file-link:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .file-link span:last-child {
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .file-link .title-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .render-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .reading {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px 36px;
+    }
+
+    .reading h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .reading p,
+    .reading li {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .reading ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .note {
+      padding: 18px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 52rem;
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero,
+      .section-head,
+      .map-grid,
+      .reading {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 18px;
+      }
+
+      h1 {
+        max-width: 12ch;
+        font-size: clamp(2.8rem, 15vw, 4.8rem);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(calc(100% - 24px), var(--max));
+        padding-bottom: 56px;
+      }
+
+      .hero-side,
+      .directory,
+      .section {
+        padding-top: 20px;
+      }
+
+      .file-link {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .file-link span:last-child {
+        text-align: left;
+      }
+
+      .github-bubble {
+        right: 14px;
+        bottom: 14px;
+        min-height: 50px;
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="toolbar">
+          <div class="eyebrow" data-i18n="eyebrow">Career Training Portfolio</div>
+          <div class="lang-switch" aria-label="Language switcher">
+            <button type="button" class="is-active" data-lang-button="uk">UA</button>
+            <button type="button" data-lang-button="en">EN</button>
+          </div>
+        </div>
+        <h1>Illya Fefelov</h1>
+        <p data-i18n="heroBody">Curated materials for my transition toward AI integrations, LLMOps, MLOps, and data infrastructure work with a strong delivery and automation backbone.</p>
+        <div class="actions">
+          <a class="button" href="/retrospective" data-i18n="primaryCta">Open Retrospective</a>
+          <a class="ghost" href="/profile/resume-mlops" data-i18n="secondaryCta">Open Resume Page</a>
+          <a class="ghost" href="/profile/linkedin" data-i18n="tertiaryCta">Open LinkedIn Page</a>
+        </div>
+      </div>
+
+      <aside class="hero-side" aria-label="Portfolio focus">
+        <div class="eyebrow" style="color: rgba(249, 243, 235, 0.7);" data-i18n="sideEyebrow">Current focus</div>
+        <h2 style="margin-top: 16px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1; max-width: 12ch;" data-i18n="sideTitle">Practical AI systems over vague positioning.</h2>
+        <p style="margin-top: 16px; max-width: 30rem;" data-i18n="sideBody">Here I bring together the positioning, proof points, documents, and supporting materials that best explain my transition into AI-oriented engineering work.</p>
+        <ul>
+          <li data-i18n="sideList1">Target themes: AI Engineering, LLMOps, orchestration, ETL, deployment, decision-support systems.</li>
+          <li data-i18n="sideList2">Main evidence: resumes, public-facing career narrative, reflective project work, and research writing.</li>
+          <li data-i18n="sideList3">Best starting point: the resume and positioning pages, then the supporting research documents.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <div class="sections">
+      <section class="section" id="map">
+        <div class="section-head">
+          <h2 data-i18n="mapTitle">Repository Map</h2>
+          <div>
+            <p data-i18n="mapBody">Below is a structured index of the materials I use to present my background, current focus, and supporting evidence.</p>
+            <div class="quick-nav">
+              <a class="nav-link" href="#career-docs">career-docs/</a>
+              <a class="nav-link" href="#resumes">resumes/</a>
+              <a class="nav-link" href="#research">research/</a>
+              <a class="nav-link" href="#workshops">workshops/</a>
+              <a class="nav-link" href="#archive">archive/</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-grid">
+          <section class="directory" id="career-docs">
+            <h3><a href="#career-docs">career-docs/</a></h3>
+            <p data-i18n="careerDocsBody">Living narrative, LinkedIn framing, self-presentation, and positioning documents.</p>
+            <div class="file-list">
+              <a class="file-link" href="/profile/linkedin"><span class="title-mark"><span data-i18n="linkedinPageTitle">LinkedIn profile page</span><strong class="render-badge" data-i18n="renderBadge">Page</strong></span><span data-i18n="linkedinPageBody">My headline, About section, and selected experience narrative</span></a>
+              <a class="file-link" href="/profile/interests"><span class="title-mark"><span data-i18n="interestsPageTitle">Professional interests page</span><strong class="render-badge" data-i18n="renderBadge">Page</strong></span><span data-i18n="interestsPageBody">My Ukrainian positioning map, target domains, and recurring themes</span></a>
+              <a class="file-link" href="/career-docs/linkedin-post-outlines-2026.md" target="_blank" rel="noopener noreferrer"><span data-i18n="linkedinPostsTitle">LinkedIn Post Outlines</span><span data-i18n="linkedinPostsBody">Three LinkedIn-style content directions</span></a>
+              <a class="file-link" href="/career-docs/self-presentation-script.md" target="_blank" rel="noopener noreferrer"><span data-i18n="selfPresentationTitle">Self-Presentation Script</span><span data-i18n="selfPresentationBody">Interview and intro script</span></a>
+            </div>
+          </section>
+
+          <section class="directory" id="resumes">
+            <h3><a href="#resumes">resumes/</a></h3>
+            <p data-i18n="resumesBody">Current resume variants and supporting PDFs for hiring conversations.</p>
+            <div class="file-list">
+              <a class="file-link" href="/profile/resume-mlops"><span class="title-mark"><span data-i18n="resumePageTitle">MLOps resume page</span><strong class="render-badge" data-i18n="renderBadge">Page</strong></span><span data-i18n="resumePageBody">My resume summary, skills, and selected experience in web format</span></a>
+              <a class="file-link" href="/resumes/resume-mlops-2026.md" target="_blank" rel="noopener noreferrer"><span data-i18n="resumeMdTitle">MLOps Resume Markdown</span><span data-i18n="resumeMdBody">Markdown source for the MLOps resume</span></a>
+              <a class="file-link" href="/resumes/resume-modusx-yasno-2026.md" target="_blank" rel="noopener noreferrer"><span data-i18n="resumeVariantTitle">Targeted Resume Variant</span><span data-i18n="resumeVariantBody">Targeted company-specific variant</span></a>
+              <a class="file-link" href="/resumes/ILLYA%20FEFELOV.Resume%20.2026.%20rev.3.pdf" target="_blank" rel="noopener noreferrer"><span data-i18n="resumePdfTitle">Resume PDF</span><span data-i18n="resumePdfBody">Shareable final PDF version</span></a>
+              <a class="file-link" href="/resumes/ILLYA%20FEFELOV.%20resume.cv.2026%20-%20simple.pdf" target="_blank" rel="noopener noreferrer"><span data-i18n="resumePdfSimpleTitle">Resume PDF Simple</span><span data-i18n="resumePdfSimpleBody">Minimal alternate export</span></a>
+            </div>
+          </section>
+
+          <section class="directory" id="research">
+            <h3><a href="#research">research/</a></h3>
+            <p data-i18n="researchBody">Analytical writing that shows market awareness, synthesis, and structured technical review work.</p>
+            <div class="file-list">
+              <a class="file-link" href="/research/ukraine-it-trends-review.md" target="_blank" rel="noopener noreferrer"><span data-i18n="researchTrendsTitle">Ukraine IT Trends Review</span><span data-i18n="researchTrendsBody">IT market trends, myths, and outlook</span></a>
+              <a class="file-link" href="/research/performance-review-personnel-it-projects.md" target="_blank" rel="noopener noreferrer"><span data-i18n="researchPerformanceTitle">Performance Review Analysis</span><span data-i18n="researchPerformanceBody">Review of performance review practices in IT projects</span></a>
+              <a class="file-link" href="/research/sources/IT-Research-Ukraine-2025-UA.pdf" target="_blank" rel="noopener noreferrer"><span data-i18n="researchSourceTitle">Ukraine IT Research PDF</span><span data-i18n="researchSourceBody">Representative source PDF from the research archive</span></a>
+            </div>
+          </section>
+
+          <section class="directory" id="workshops">
+            <h3><a href="#workshops">workshops/</a></h3>
+            <p data-i18n="workshopsBody">Workshop notes, career-growth materials, SWOT artifacts, and supporting exercises.</p>
+            <div class="file-list">
+              <a class="file-link" href="/workshops/how-to-get-a-raise/Illya_Fefelov_SWOT_IPR_filled.xlsx" target="_blank" rel="noopener noreferrer"><span data-i18n="swotTitle">SWOT and Development Plan Workbook</span><span data-i18n="swotBody">Filled SWOT and development plan workbook</span></a>
+              <a class="file-link" href="/workshops/resources/%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BA%D0%B0%D1%80%27%D1%94%D1%80%D0%BD%D0%B8%D1%85%20%D1%86%D1%96%D0%BB%D0%B5%D0%B9.pdf" target="_blank" rel="noopener noreferrer"><span data-i18n="careerGoalsTitle">Career Goals Worksheet</span><span data-i18n="careerGoalsBody">Career goals source document</span></a>
+              <a class="file-link" href="/workshops/resources/Fefelov.%20%D0%92%D0%BE%D1%80%D0%BA%D1%88%D0%BE%D0%BF%2015.%20%D0%9E%D1%81%D0%BE%D0%B1%D0%B8%D1%81%D1%82%D0%B8%D0%B9%20%D0%B1%D1%80%D0%B5%D0%BD%D0%B4.pdf" target="_blank" rel="noopener noreferrer"><span data-i18n="brandWorkshopTitle">Personal Brand Workshop PDF</span><span data-i18n="brandWorkshopBody">Brand and positioning workshop material</span></a>
+            </div>
+          </section>
+
+          <section class="directory" id="archive">
+            <h3><a href="#archive">archive/</a></h3>
+            <p data-i18n="archiveBody">Legacy materials, old exports, job-market data, and historical project files kept outside the main story.</p>
+            <div class="file-list">
+              <a class="file-link" href="/archive/job-market-research.csv" target="_blank" rel="noopener noreferrer"><span data-i18n="archiveCsvTitle">Job Market Research CSV</span><span data-i18n="archiveCsvBody">Structured market research data</span></a>
+              <a class="file-link" href="/archive/job-market-research-utf8.csv" target="_blank" rel="noopener noreferrer"><span data-i18n="archiveUtf8Title">Job Market Research UTF-8 CSV</span><span data-i18n="archiveUtf8Body">UTF-8 export of the research dataset</span></a>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-head">
+          <h2 data-i18n="readmeTitle">README Highlights</h2>
+          <p data-i18n="readmeBody">This section summarizes the core ideas behind the repository and the role direction I am actively building toward.</p>
+        </div>
+
+        <div class="reading">
+          <div>
+            <h3 data-i18n="repoForTitle">What This Repo Is For</h3>
+            <p data-i18n="repoForBody">This is a curated career portfolio for my transition into MLOps, AI Engineering, LLMOps, and data infrastructure with a strong emphasis on applied systems, workflow orchestration, AI integrations, and practical operational value.</p>
+            <ul>
+              <li data-i18n="repoForList1">Documenting the shift from full-stack delivery and automation toward production AI and data workflows.</li>
+              <li data-i18n="repoForList2">Capturing current career positioning, resume variants, and interview-ready messaging.</li>
+              <li data-i18n="repoForList3">Preserving supporting research and career materials in a reviewable structure.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 data-i18n="lookingForTitle">What I Am Looking For</h3>
+            <ul>
+              <li data-i18n="lookingForList1">MLOps, AI Engineering, and LLMOps roles with real delivery accountability.</li>
+              <li data-i18n="lookingForList2">AI integrations, automation, and reliable model-driven workflows.</li>
+              <li data-i18n="lookingForList3">Data infrastructure, ETL, analytics pipelines, and decision-support systems.</li>
+              <li data-i18n="lookingForList4">Teams that value practical systems over hype and reward delivery mindset.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 data-i18n="useRepoTitle">How To Use This Repo</h3>
+            <ul>
+              <li data-i18n="useRepoList1">Start with the resumes and positioning pages if you want the fastest overview of my direction and fit.</li>
+              <li data-i18n="useRepoList2">Use INDEX and the clickable map above to jump to current narrative and resume files.</li>
+              <li data-i18n="useRepoList3">Open research and source documents for evidence of analysis, synthesis, and execution.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 data-i18n="keyMessagesTitle">Key Messages</h3>
+            <ul>
+              <li data-i18n="keyMessagesList1">AI is positioned here as part of production workflows, not as a vague trend label.</li>
+              <li data-i18n="keyMessagesList2">The background combines product delivery, frontend engineering, automation, and a growing data/ML systems layer.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="note" data-i18n="noteHtml">For the complete file map and individual summaries, the raw markdown sources remain available through <a href="/README.md" target="_blank" rel="noopener noreferrer">README.md</a> and <a href="/INDEX.md" target="_blank" rel="noopener noreferrer">INDEX.md</a>.</p>
+      </section>
+    </div>
+  </main>
+  <a class="github-bubble" href="https://github.com/ilyafefelov/career-training-portfolio" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.11.78-.25.78-.56 0-.27-.01-1.17-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.72 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.03 0 0 .97-.31 3.19 1.18a10.9 10.9 0 0 1 5.8 0c2.22-1.49 3.19-1.18 3.19-1.18.62 1.58.23 2.74.11 3.03.73.81 1.18 1.84 1.18 3.1 0 4.45-2.7 5.43-5.28 5.71.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.79.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+    <span>GitHub</span>
+  </a>
+  <script>
+    const translations = {
+      uk: {
+        eyebrow: 'Кар\'єрне портфоліо',
+        heroBody: 'Кураторська збірка матеріалів про мій перехід у AI integrations, LLMOps, MLOps і data infrastructure з опорою на delivery, automation та production thinking.',
+        primaryCta: 'Відкрити retrospective',
+        secondaryCta: 'Відкрити сторінку резюме',
+        tertiaryCta: 'Відкрити LinkedIn-сторінку',
+        sideEyebrow: 'Поточний фокус',
+        sideTitle: 'Практичні AI-системи замість розмитого позиціонування.',
+        sideBody: 'Тут я зібрав позиціонування, ключові докази, документи і supporting materials, які найкраще пояснюють мій перехід у AI-орієнтовану інженерію.',
+        sideList1: 'Ключові теми: AI Engineering, LLMOps, orchestration, ETL, deployment, decision-support systems.',
+        sideList2: 'Основні докази: резюме, публічний career narrative, reflective project work і research writing.',
+        sideList3: 'Найкращий старт: резюме та сторінки позиціонування, потім supporting research-документи.',
+        mapTitle: 'Карта репозиторію',
+        mapBody: 'Нижче зібраний структурований індекс матеріалів, через які я показую свій бекграунд, поточний фокус і підтверджувальні артефакти.',
+        careerDocsBody: 'Жива narrative-база: LinkedIn framing, self-presentation і документи позиціонування.',
+        linkedinPageTitle: 'Сторінка LinkedIn profile',
+        renderBadge: 'Сторінка',
+        linkedinPageBody: 'Мій headline, About і вибрані фрагменти досвіду в окремій сторінці',
+        interestsPageTitle: 'Сторінка професійних інтересів',
+        interestsPageBody: 'Моя українська карта інтересів, доменів і стійких професійних сигналів',
+        linkedinPostsTitle: 'LinkedIn Post Outlines',
+        linkedinPostsBody: 'Три напрями для LinkedIn-style контенту',
+        selfPresentationTitle: 'Self-Presentation Script',
+        selfPresentationBody: 'Скрипт для інтерв\'ю та самопрезентації',
+        resumesBody: 'Поточні варіанти резюме та supporting PDFs для hiring conversations.',
+        resumePageTitle: 'Сторінка MLOps-резюме',
+        resumePageBody: 'Моє резюме з summary, skills і вибраним досвідом у web-форматі',
+        resumeMdTitle: 'MLOps Resume Markdown',
+        resumeMdBody: 'Markdown-джерело для MLOps-резюме',
+        resumeVariantTitle: 'Targeted Resume Variant',
+        resumeVariantBody: 'Цільова версія резюме під конкретну компанію',
+        resumePdfTitle: 'Resume PDF',
+        resumePdfBody: 'Фінальна PDF-версія для поширення',
+        resumePdfSimpleTitle: 'Resume PDF Simple',
+        resumePdfSimpleBody: 'Спрощений альтернативний PDF-експорт',
+        researchBody: 'Аналітичні тексти, які показують market awareness, synthesis і structured technical review work.',
+        researchTrendsTitle: 'Ukraine IT Trends Review',
+        researchTrendsBody: 'Огляд трендів, міфів і перспектив IT-ринку',
+        researchPerformanceTitle: 'Performance Review Analysis',
+        researchPerformanceBody: 'Огляд практик performance review в IT-проєктах',
+        researchSourceTitle: 'Ukraine IT Research PDF',
+        researchSourceBody: 'Репрезентативний PDF із дослідницького архіву',
+        workshopsBody: 'Workshop notes, career-growth materials, SWOT artifacts і supporting exercises.',
+        swotTitle: 'SWOT and Development Plan Workbook',
+        swotBody: 'Заповнений workbook зі SWOT та планом розвитку',
+        careerGoalsTitle: 'Career Goals Worksheet',
+        careerGoalsBody: 'Документ із формулюванням кар\'єрних цілей',
+        brandWorkshopTitle: 'Personal Brand Workshop PDF',
+        brandWorkshopBody: 'Матеріал воркшопу про бренд і позиціонування',
+        archiveBody: 'Легасі-матеріали, старі експорти, job-market data і історичні файли поза основною історією.',
+        archiveCsvTitle: 'Job Market Research CSV',
+        archiveCsvBody: 'Структуровані дані дослідження ринку праці',
+        archiveUtf8Title: 'Job Market Research UTF-8 CSV',
+        archiveUtf8Body: 'UTF-8 експорт датасету з дослідження ринку',
+        readmeTitle: 'Ключове з README',
+        readmeBody: 'У цьому блоці я коротко зводжу основні ідеї репозиторію і напрям ролей, до яких цілеспрямовано рухаюся.',
+        repoForTitle: 'Для чого цей repo',
+        repoForBody: 'Це кураторське кар\'єрне портфоліо для мого переходу в MLOps, AI Engineering, LLMOps і data infrastructure з акцентом на applied systems, workflow orchestration, AI integrations і practical operational value.',
+        repoForList1: 'Документує перехід від full-stack delivery та automation до production AI і data workflows.',
+        repoForList2: 'Фіксує актуальне позиціонування, варіанти резюме та interview-ready messaging.',
+        repoForList3: 'Зберігає supporting research і кар\'єрні матеріали у структурі, яку легко переглядати.',
+        lookingForTitle: 'Що я шукаю',
+        lookingForList1: 'Ролі в MLOps, AI Engineering і LLMOps з реальною delivery-відповідальністю.',
+        lookingForList2: 'AI integrations, automation і надійні model-driven workflows.',
+        lookingForList3: 'Data infrastructure, ETL, analytics pipelines і decision-support systems.',
+        lookingForList4: 'Команди, які цінують практичні системи замість hype і поважають delivery mindset.',
+        useRepoTitle: 'Як користуватися цим repo',
+        useRepoList1: 'Почни з резюме та сторінок позиціонування, якщо потрібен найшвидший огляд мого напряму і профілю.',
+        useRepoList2: 'Використовуй INDEX і карту вище, щоб перейти до narrative-документів і резюме.',
+        useRepoList3: 'Відкривай research і вихідні документи як докази analysis, synthesis та execution.',
+        keyMessagesTitle: 'Ключові меседжі',
+        keyMessagesList1: 'AI тут позиціонується як частина production workflows, а не як загальний трендовий ярлик.',
+        keyMessagesList2: 'Бекграунд поєднує product delivery, frontend engineering, automation і зростаючий data/ML systems layer.',
+        noteHtml: 'Для повної карти файлів і коротких summary сирі markdown-джерела залишаються доступними через <a href="/README.md" target="_blank" rel="noopener noreferrer">README.md</a> та <a href="/INDEX.md" target="_blank" rel="noopener noreferrer">INDEX.md</a>.'
+      },
+      en: {
+        eyebrow: 'Career Training Portfolio',
+        heroBody: 'Curated materials for my transition toward AI integrations, LLMOps, MLOps, and data infrastructure work with a strong delivery and automation backbone.',
+        primaryCta: 'Open Retrospective',
+        secondaryCta: 'Open Resume Page',
+        tertiaryCta: 'Open LinkedIn Page',
+        sideEyebrow: 'Current focus',
+        sideTitle: 'Practical AI systems over vague positioning.',
+        sideBody: 'Here I bring together the positioning, proof points, documents, and supporting materials that best explain my transition into AI-oriented engineering work.',
+        sideList1: 'Target themes: AI Engineering, LLMOps, orchestration, ETL, deployment, decision-support systems.',
+        sideList2: 'Main evidence: resumes, public-facing career narrative, reflective project work, and research writing.',
+        sideList3: 'Best starting point: the resume and positioning pages, then the supporting research documents.',
+        mapTitle: 'Repository Map',
+        mapBody: 'Below is a structured index of the materials I use to present my background, current focus, and supporting evidence.',
+        careerDocsBody: 'Living narrative, LinkedIn framing, self-presentation, and positioning documents.',
+        linkedinPageTitle: 'LinkedIn profile page',
+        renderBadge: 'Page',
+        linkedinPageBody: 'My headline, About section, and selected experience narrative',
+        interestsPageTitle: 'Professional interests page',
+        interestsPageBody: 'My Ukrainian positioning map, target domains, and recurring themes',
+        linkedinPostsTitle: 'LinkedIn Post Outlines',
+        linkedinPostsBody: 'Three LinkedIn-style content directions',
+        selfPresentationTitle: 'Self-Presentation Script',
+        selfPresentationBody: 'Interview and intro script',
+        resumesBody: 'Current resume variants and supporting PDFs for hiring conversations.',
+        resumePageTitle: 'MLOps resume page',
+        resumePageBody: 'My resume summary, skills, and selected experience in web format',
+        resumeMdTitle: 'MLOps Resume Markdown',
+        resumeMdBody: 'Markdown source for the MLOps resume',
+        resumeVariantTitle: 'Targeted Resume Variant',
+        resumeVariantBody: 'Targeted company-specific variant',
+        resumePdfTitle: 'Resume PDF',
+        resumePdfBody: 'Shareable final PDF version',
+        resumePdfSimpleTitle: 'Resume PDF Simple',
+        resumePdfSimpleBody: 'Minimal alternate export',
+        researchBody: 'Analytical writing that shows market awareness, synthesis, and structured technical review work.',
+        researchTrendsTitle: 'Ukraine IT Trends Review',
+        researchTrendsBody: 'IT market trends, myths, and outlook',
+        researchPerformanceTitle: 'Performance Review Analysis',
+        researchPerformanceBody: 'Review of performance review practices in IT projects',
+        researchSourceTitle: 'Ukraine IT Research PDF',
+        researchSourceBody: 'Representative source PDF from the research archive',
+        workshopsBody: 'Workshop notes, career-growth materials, SWOT artifacts, and supporting exercises.',
+        swotTitle: 'SWOT and Development Plan Workbook',
+        swotBody: 'Filled SWOT and development plan workbook',
+        careerGoalsTitle: 'Career Goals Worksheet',
+        careerGoalsBody: 'Career goals source document',
+        brandWorkshopTitle: 'Personal Brand Workshop PDF',
+        brandWorkshopBody: 'Brand and positioning workshop material',
+        archiveBody: 'Legacy materials, old exports, job-market data, and historical project files kept outside the main story.',
+        archiveCsvTitle: 'Job Market Research CSV',
+        archiveCsvBody: 'Structured market research data',
+        archiveUtf8Title: 'Job Market Research UTF-8 CSV',
+        archiveUtf8Body: 'UTF-8 export of the research dataset',
+        readmeTitle: 'README Highlights',
+        readmeBody: 'This section summarizes the core ideas behind the repository and the role direction I am actively building toward.',
+        repoForTitle: 'What This Repo Is For',
+        repoForBody: 'This is a curated career portfolio for my transition into MLOps, AI Engineering, LLMOps, and data infrastructure with a strong emphasis on applied systems, workflow orchestration, AI integrations, and practical operational value.',
+        repoForList1: 'Documenting the shift from full-stack delivery and automation toward production AI and data workflows.',
+        repoForList2: 'Capturing current career positioning, resume variants, and interview-ready messaging.',
+        repoForList3: 'Preserving supporting research and career materials in a reviewable structure.',
+        lookingForTitle: 'What I Am Looking For',
+        lookingForList1: 'MLOps, AI Engineering, and LLMOps roles with real delivery accountability.',
+        lookingForList2: 'AI integrations, automation, and reliable model-driven workflows.',
+        lookingForList3: 'Data infrastructure, ETL, analytics pipelines, and decision-support systems.',
+        lookingForList4: 'Teams that value practical systems over hype and reward delivery mindset.',
+        useRepoTitle: 'How To Use This Repo',
+        useRepoList1: 'Start with the resumes and positioning pages if you want the fastest overview of my direction and fit.',
+        useRepoList2: 'Use INDEX and the clickable map above to jump to current narrative and resume files.',
+        useRepoList3: 'Open research and source documents for evidence of analysis, synthesis, and execution.',
+        keyMessagesTitle: 'Key Messages',
+        keyMessagesList1: 'AI is positioned here as part of production workflows, not as a vague trend label.',
+        keyMessagesList2: 'The background combines product delivery, frontend engineering, automation, and a growing data/ML systems layer.',
+        noteHtml: 'For the complete file map and individual summaries, the raw markdown sources remain available through <a href="/README.md" target="_blank" rel="noopener noreferrer">README.md</a> and <a href="/INDEX.md" target="_blank" rel="noopener noreferrer">INDEX.md</a>.'
+      }
+    };
+
+    const applyLang = (lang) => {
+      document.documentElement.lang = lang === 'uk' ? 'uk' : 'en';
+      document.querySelectorAll('[data-lang-button]').forEach((button) => {
+        button.classList.toggle('is-active', button.dataset.langButton === lang);
+      });
+      document.querySelectorAll('[data-i18n]').forEach((node) => {
+        const key = node.dataset.i18n;
+        if (translations[lang][key]) {
+          node.innerHTML = translations[lang][key];
+        }
+      });
+      localStorage.setItem('career-portfolio-lang', lang);
+    };
+
+    document.querySelectorAll('[data-lang-button]').forEach((button) => {
+      button.addEventListener('click', () => applyLang(button.dataset.langButton));
+    });
+
+    applyLang(localStorage.getItem('career-portfolio-lang') || 'uk');
+  </script>
+</body>
+</html>
